@@ -13,11 +13,11 @@ describe "hand", ->
     fiveSpades = new Card({rank: 5, suit: 0})
     deck = new Deck()
 
-  describe 'scores', ->
+  describe 'score', ->
     describe 'when we have an Ace', ->
       it 'should display the correct score', ->
         hand = new Hand([aceDiamonds, nineSpades])
-        assert.strictEqual hand.scores(), 20
+        assert.strictEqual hand.score(), 20
 
 
     describe "when we have don't have an Ace", ->

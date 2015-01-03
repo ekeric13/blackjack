@@ -14,7 +14,7 @@ class window.Hand extends Backbone.Collection
     score + if card.get 'revealed' then card.get 'value' else 0
   , 0
 
-  scores: ->
+  score: ->
     if @minScore() + 10 * @hasAce() > 21
       @minScore()
     else
