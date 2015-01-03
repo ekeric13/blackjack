@@ -18,10 +18,16 @@ describe "hand", ->
       it 'should display the correct score', ->
         hand = new Hand([aceDiamonds, nineSpades])
         assert.strictEqual hand.score(), 20
-
+      it 'should change the value of the Ace to 1 and display the correct score when above 21', ->
+        hand = new Hand([aceDiamonds, nineSpades, fiveSpades])
+        assert.strictEqual hand.score(), 15
 
     describe "when we have don't have an Ace", ->
       it 'should display the correct score', ->
+        hand = new Hand([nineSpades, fiveSpades])
+        assert.strictEqual hand.score(), 14
+
+
 
 
 
