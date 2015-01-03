@@ -2,9 +2,15 @@ class window.Hand extends Backbone.Collection
   model: Card
 
   initialize: (array, @deck, @isDealer) ->
+    @on('hit', @checkScore, @)
 
   hit: ->
     @add(@deck.pop())
+    @trigger "hit", @
+
+  checkScore: ->
+    if @score() > 21
+      @trigger 'bust', @
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
